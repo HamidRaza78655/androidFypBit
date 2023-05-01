@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Course"
+        android:id="@+id/course"
+        android:icon="@drawable/cources"/>
+    <item
+        android:title="Plos"
+        android:id="@+id/plos"
+        android:icon="@drawable/plos"/>
+    <item
+        android:title="Allocation"
+        android:id="@+id/allocation"
+        android:icon="@drawable/allocation"/>
+
+
+
+</menu>

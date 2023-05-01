@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CourseActivity">
+
+    <TextView
+        android:layout_alignParentTop="true"
+        android:paddingTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Program_txt"
+        android:text="Program:"
+        android:textSize="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/ProgramDes_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Program_txt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_below="@+id/ProgramDes_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/course_txt"
+        android:text="Course:"
+        android:textSize="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Recyclerview_Course"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/navigation"
+        android:layout_below="@+id/course_txt"
+        android:layout_marginBottom="0dp"
+        android:background="@color/teal_200" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/navigation"
+        app:menu="@menu/bottom_item"
+        app:itemBackground="@color/colorAccent"
+        android:layout_alignParentBottom="true"
+        tools:ignore="ObsoleteLayoutParam" />
+
+
+
+</RelativeLayout>

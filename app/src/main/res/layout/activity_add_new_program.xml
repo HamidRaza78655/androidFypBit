@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNewProgramActivity"
+    android:orientation="vertical">
+    <EditText android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:id="@+id/edit_text_Program_Tittle"
+        android:paddingLeft="5dp"
+        android:hint="Enter Program Title"
+        android:textColor="@color/black"
+        android:background="@drawable/edit_text_border"/>
+
+    <EditText android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:id="@+id/edit_text_Description"
+        android:paddingLeft="5dp"
+        android:textColor="@color/black"
+        android:hint="Enter Description"
+        android:background="@drawable/edit_text_border"/>
+
+    <Button android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_margin="50dp"
+        android:id="@+id/button_Add"
+        android:text="Add"
+        />
+
+
+
+</LinearLayout>

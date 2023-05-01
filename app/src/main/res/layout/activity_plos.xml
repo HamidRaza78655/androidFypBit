@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlosActivity"
+    android:orientation="vertical">
+    <TextView
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_program_title"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_program_title"
+        android:id="@+id/btn_plo"
+        android:text="Add Plo"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Recyclerview_plo"
+        android:background="@color/teal_200"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/navigation"
+        android:layout_below="@+id/btn_plo"
+        android:layout_marginBottom="0dp"
+
+        />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/navigation"
+        app:itemBackground="@color/colorAccent"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"
+        app:menu="@menu/bottom_item"
+        android:layout_alignParentBottom="true"/>
+
+
+
+</RelativeLayout>
