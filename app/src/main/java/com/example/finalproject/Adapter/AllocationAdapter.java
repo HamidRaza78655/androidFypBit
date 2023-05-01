@@ -64,7 +64,6 @@ public class AllocationAdapter extends RecyclerView.Adapter<AllocationAdapter.Al
 //            // Process the list of CustomData objects for this key
 //        }
 //        Gson gson= new Gson();
-        //koi bhi chacnge
 //        Toast.makeText( context, "jjj"+groupedData.size(), Toast.LENGTH_SHORT ).show();
 ////        for (:
 ////             ) {
