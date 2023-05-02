@@ -1,9 +1,13 @@
 package com.example.finalproject.Adapter;
 
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -11,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.Model.Allocation;
 import com.example.finalproject.Model.Program;
+import com.example.finalproject.R;
 import com.example.finalproject.databinding.RecyclerviewAllocationCelllayoutBinding;
 import com.example.finalproject.databinding.RecyclerviewProgramItemCellBinding;
 import com.google.gson.Gson;
@@ -19,7 +24,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 public class AllocationAdapter extends RecyclerView.Adapter<AllocationAdapter.AllocationViewHolder> {
     @NonNull
     private ArrayList<Allocation> list;
@@ -27,6 +31,7 @@ public class AllocationAdapter extends RecyclerView.Adapter<AllocationAdapter.Al
     Map<String, List<Allocation>> groupedData = new HashMap<>();
     ArrayList<String> groupedDatakey= new ArrayList<>();
     List<Allocation> dataList = new ArrayList<>();
+    List<RadioButton> rbList = new ArrayList<>();
 
     private Map<String, List<Allocation>> groupData(ArrayList<Allocation> dataList) {
         Map<String, List<Allocation>> groupedData = new HashMap<>();
@@ -43,6 +48,8 @@ public class AllocationAdapter extends RecyclerView.Adapter<AllocationAdapter.Al
         this.list=list;
         this.context=context;
         this.groupedData = groupData(list);
+
+
 //       Toast.makeText( context, ""+list.get( 0 ).getName(), Toast.LENGTH_SHORT ).show();
 //        System.out.println("jjjj"+list.get( 0 ).Name);
 //        for (Allocation data : list) {
@@ -80,6 +87,7 @@ public class AllocationAdapter extends RecyclerView.Adapter<AllocationAdapter.Al
         return vh;
     }
 int index=0;
+    int tid=1;
     @Override
     public void onBindViewHolder(@NonNull AllocationAdapter.AllocationViewHolder holder, int position) {
         Allocation    data= dataList.get(position);
@@ -88,7 +96,31 @@ int index=0;
         holder.binding.txtsection.setText( data.Section + "" );
         holder.binding.txtTeacherName.setText( data.getTeacher_Name()+"" );
         holder.binding.radioButtonClos.setChecked( Boolean.parseBoolean( data.Allocate ) );
-//        for (int i=0; i<dataWithSameName.size();i++){
+        holder.binding.radioButtonClos.setTag( data.Course_Id );
+        holder.binding.radioButtonClos.setTag( R.string.app_name,tid++ );
+        rbList.add( holder.binding.radioButtonClos );
+        holder.binding.radioButtonClos.setOnCheckedChangeListener( new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    for (RadioButton rb:rbList
+                         ) {
+                        int t1 = Integer.parseInt(buttonView.getTag().toString());
+                        int t2 = Integer.parseInt(rb.getTag().toString());
+                        if(t1==t2){
+                            //same group if
+                            int t11 = Integer.parseInt(buttonView.getTag(R.string.app_name).toString());
+                            int t22 = Integer.parseInt(rb.getTag(R.string.app_name).toString());
+                            if(t11!=t22){
+                                //other than this one in same group
+                                rb.setChecked( false );
+                            }
+                        }
+                    }
+                }
+            }
+        } );
+        //        for (int i=0; i<dataWithSameName.size();i++){
 //            Allocation data=dataWithSameName.get( i );
 //
 //            if (i == dataWithSameName.size()-1 && index < groupedDatakey.size() - 1) {
@@ -102,8 +134,6 @@ int index=0;
 ////            Allocation    obj2= list.get(position);
 //
 //        }
-
-
     }
 
     @Override
